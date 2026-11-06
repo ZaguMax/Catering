@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unahur.obj2.catering.excepciones.DescuentoInvalidoException;
+import ar.edu.unahur.obj2.catering.excepciones.PropuestaNoIncluidaException;
 
 public class Menu implements Propuesta {
 
@@ -53,5 +54,11 @@ public class Menu implements Propuesta {
 
     public void agregar(Propuesta propuesta) {   
         contenido.add(propuesta);
+    }
+
+    public void quitar(Propuesta propuesta) {
+        if (!contenido.remove(propuesta)) {
+            throw new PropuestaNoIncluidaException("La propuesta no es componente directo del menú");
+        }
     }
 }

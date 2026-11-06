@@ -6,7 +6,7 @@ public class Servicio implements Propuesta {
     
 
     private final String nombre;
-    private final Double precio;
+    private Double precio;
 
     public Servicio(String nombre, Double precio) {
         if (precio < 0){
@@ -34,5 +34,12 @@ public class Servicio implements Propuesta {
     @Override 
     public Boolean incluye(String nombreServicio) { 
         return nombre.equals(nombreServicio);
+    }
+
+    public void setPrecio(double precio) {
+        if (precio < 0) {
+            throw new PrecioNegativoException("No se puede asignar un precio menor a 0");
+        }
+        this.precio = precio;
     }
 }
