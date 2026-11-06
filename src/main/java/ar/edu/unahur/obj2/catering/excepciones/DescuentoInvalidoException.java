@@ -1,4 +1,4 @@
-package ar.edu.unahur.obj2.catering.propuestas;
+package ar.edu.unahur.obj2.catering.excepciones;
 
 /*
 No verificada = 

@@ -2,6 +2,8 @@ package ar.edu.unahur.obj2.catering.propuestas;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unahur.obj2.catering.excepciones.DescuentoInvalidoException;
+
 public class Menu implements Propuesta {
 
     private final String nombre;
@@ -9,24 +11,24 @@ public class Menu implements Propuesta {
     private final List<Propuesta> contenido = new ArrayList<>();
 
     @Override
-    public String descripcion() {
+    public String getDescripcion() {
         return  nombre;
     }
 
     @Override
-    public Double precio() {
+    public Double getPrecio() {
         double suma = 0;
         for (Propuesta propuesta : contenido) {
-            suma += propuesta.precio();
+            suma += propuesta.getPrecio();
         }
         return suma * (100 - descuento) / 100;
     }
 
     @Override
-    public Integer cantidadDeServicios() {
+    public Integer getCantidadDeServicios() {
         int total = 0;
         for (Propuesta propuesta : contenido) {
-            total += propuesta.cantidadDeServicios();
+            total += propuesta.getCantidadDeServicios();
         }
         return total;
     }
@@ -49,5 +51,7 @@ public class Menu implements Propuesta {
         this.descuento = descuento;
     }
 
-    public void agregar(Servicio servicio) { contenido.add(servicio); }
+    public void agregar(Propuesta propuesta) {   
+        contenido.add(propuesta);
+    }
 }

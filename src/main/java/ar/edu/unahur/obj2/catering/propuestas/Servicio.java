@@ -1,5 +1,7 @@
 package ar.edu.unahur.obj2.catering.propuestas;
 
+import ar.edu.unahur.obj2.catering.excepciones.PrecioNegativoException;
+
 public class Servicio implements Propuesta {
     
 
@@ -15,17 +17,17 @@ public class Servicio implements Propuesta {
     }
 
     @Override 
-    public String descripcion() { 
+    public String getDescripcion() { 
         return nombre;
     }
 
     @Override 
-    public Double precio() { 
+    public Double getPrecio() { 
         return precio;
     }
 
     @Override 
-    public Integer cantidadDeServicios() { 
+    public Integer getCantidadDeServicios() { 
         return 1;
     }
 
